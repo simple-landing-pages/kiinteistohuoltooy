@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Chat Widget - Myyntipaketti</title>
+    <style>
+        @media print {
+            .no-print { display: none; }
+            body { margin: 0; }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 4px solid #667eea;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 20px;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .header .version {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #999;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 28px;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        h3 {
+            color: #333;
+            font-size: 22px;
+            margin: 25px 0 15px 0;
+        }
+
+        h4 {
+            color: #667eea;
+            font-size: 18px;
+            margin: 20px 0 10px 0;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .highlight-box {
+            background: #f8f9ff;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .price-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .price-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .price-table tr:hover {
+            background: #f8f9ff;
+        }
+
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .checkmark {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .cross {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+            text-align: center;
+            color: #666;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .print-button:hover {
+            background: #5568d3;
+        }
+
+        .team-info {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .role {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .page-break {
+            page-break-after: always;
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button no-print" onclick="window.print()">🖨️ Tulosta PDF</button>
+
+    <div class="container">
+        <!-- ETUSIVU -->
+        <div class="header">
+            <h1>FAQ Chat Widget</h1>
+            <div class="subtitle">Automaattinen asiakaspalveluapuri yritysten kotisivuille</div>
+            <div class="version">Myyntipaketti v1.0 | Tammikuu 2026</div>
+        </div>
+
+        <div class="team-info">
+            <h3>Tiimi</h3>
+            <p><strong>Santtu</strong> <span class="role">Myynti</span> - Asiakaskontaktit ja myyntineuvottelut</p>
+            <p><strong>Andy</strong> <span class="role">Tekninen toteutus</span> - Kehitys, asennus ja ylläpito Claudella</p>
+        </div>
+
+        <!-- TUOTEKUVAUS -->
+        <div class="section">
+            <h2>1. Tuotekuvaus</h2>
+
+            <h3>Mikä on FAQ Chat Widget?</h3>
+            <p>FAQ Chat Widget on <strong>automaattinen kysymys-vastaus -työkalu</strong> joka asennetaan yrityksen kotisivulle. Se vastaa asiakkaiden yleisimpiin kysymyksiin välittömästi - 24/7, ilman odotusaikoja.</p>
+
+            <div class="highlight-box">
+                <h4>Tärkeitä huomioita (OLE REHELLINEN!):</h4>
+                <ul>
+                    <li><span class="checkmark">✓</span> Tämä on <strong>FAQ-chatbot</strong>, ei tekoäly</li>
+                    <li><span class="checkmark">✓</span> Toimii ennalta määritellyillä kysymys-vastaus -pareilla</li>
+                    <li><span class="checkmark">✓</span> Tunnistaa avainsanoja ja tarjoaa sopivan vastauksen</li>
+                    <li><span class="checkmark">✓</span> Täydentää asiakaspalvelua, ei korvaa sitä</li>
+                </ul>
+            </div>
+
+            <h3>Mitä se tekee käytännössä?</h3>
+            <ul>
+                <li><span class="checkmark">✓</span> Kertoo aukioloajat ja yhteystiedot</li>
+                <li><span class="checkmark">✓</span> Listaa yrityksen palvelut</li>
+                <li><span class="checkmark">✓</span> Ohjaa kiireellisissä tapauksissa päivystykseen</li>
+                <li><span class="checkmark">✓</span> Vastaa usein kysyttyihin kysymyksiin (FAQ)</li>
+                <li><span class="checkmark">✓</span> Ohjaa asiakkaat oikeisiin yhteystietoihin</li>
+            </ul>
+
+            <h3>Mitä se EI tee?</h3>
+            <ul>
+                <li><span class="cross">✗</span> Ei ymmärrä kaikkia kysymyksiä (vain avainsanat)</li>
+                <li><span class="cross">✗</span> Ei opi asiakkaista (staattinen)</li>
+                <li><span class="cross">✗</span> Ei tee varauksia tai tilauksia</li>
+                <li><span class="cross">✗</span> Ei korvaa asiakaspalvelua kokonaan</li>
+            </ul>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- KOHDERYHMÄ -->
+        <div class="section">
+            <h2>2. Kenelle sopii?</h2>
+
+            <div class="success-box">
+                <h4>✓ Ideaaliset asiakkaat:</h4>
+                <ul>
+                    <li><strong>Pienet palveluyritykset (1-20 henkilöä)</strong>
+                        <ul>
+                            <li>Kiinteistöhuolto</li>
+                            <li>Parturit, kampaamot, kauneuspalvelut</li>
+                            <li>Pienet ravintolat ja kahvilat</li>
+                            <li>Autonkorjaamot</li>
+                            <li>Lakitoimistot</li>
+                            <li>Vuokra-asuntojen hallinta</li>
+                        </ul>
+                    </li>
+                    <li><strong>Yritykset joilla on:</strong>
+                        <ul>
+                            <li>Selkeät aukioloajat</li>
+                            <li>Rajattu palveluvalikoima (3-10 palvelua)</li>
+                            <li>Toistuvat samat asiakaskysymykset</li>
+                            <li>Pieni budjetti (ei varaa isoon CRM:ään)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Sisäinen käyttö:</strong>
+                        <ul>
+                            <li>Henkilöstön ohjeistus</li>
+                            <li>Sisäiset FAQ:t</li>
+                            <li>Perehdytysapu</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h4>✗ EI sovellu:</h4>
+                <ul>
+                    <li><span class="cross">✗</span> Verkkokaupat (tarvitsevat tuotekatalogin)</li>
+                    <li><span class="cross">✗</span> Isot yritykset (+50 henkilöä)</li>
+                    <li><span class="cross">✗</span> Monimutkaiset palvelut (konsultointi, räätälöinti)</li>
+                    <li><span class="cross">✗</span> Asiakkaat jotka odottavat "oikeaa AI:ta"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- HINNOITTELU -->
+        <div class="section">
+            <h2>3. Hinnoittelu</h2>
+
+            <h3>Suositeltu hinnoittelu asiakkaille:</h3>
+
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>Palvelu</th>
+                        <th>Hinta</th>
+                        <th>Sisältö</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Käyttöönotto</strong></td>
+                        <td><strong>490€</strong></td>
+                        <td>
+                            • Chatbotin räätälöinti (sis. 15 Q&A-paria)<br>
+                            • Asennus asiakkaan kotisivuille<br>
+                            • Väritys/brändäys yrityksen ilmeeseen<br>
+                            • Testaus ja käyttöönotto<br>
+                            • Käyttöohje
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ylläpito</strong><br><small>(valinnainen)</small></td>
+                        <td><strong>50€/kk</strong><br><small>tai 500€/vuosi</small></td>
+                        <td>
+                            • Sisältöpäivitykset (max 3 krt/kk)<br>
+                            • Uusien Q&A-parien lisäys<br>
+                            • Pienet muokkaukset<br>
+                            • Tekninen tuki (sähköposti)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yksittäiset päivitykset</strong><br><small>(ilman ylläpitoa)</small></td>
+                        <td><strong>80€/kerta</strong></td>
+                        <td>
+                            • Sisällön päivitys<br>
+                            • Uusien kysymysten lisäys<br>
+                            • Pienet korjaukset
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Lisäpalvelut (vapaaehtoinen):</h3>
+            <table class="price-table">
+                <tbody>
+                    <tr>
+                        <td><strong>Landing Page + Chatbot -paketti</strong></td>
+                        <td><strong>1490€</strong></td>
+                        <td>Täysi kotisivu + chatbot + hosting 1v</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kuukausiraportti</strong></td>
+                        <td><strong>+40€/kk</strong></td>
+                        <td>Tilastot käytöstä ja yleisimmät kysymykset</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Premium-brändäys</strong></td>
+                        <td><strong>+200€</strong></td>
+                        <td>Custom-ikonit, erikoisanimaatiot</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>💡 Myyntivinkki: "Ilman ylläpitosopimusta" -taktiikka</h4>
+                <p>Tarjoa ensiksi <strong>ilman ylläpitoa</strong> (490€). Kun asiakas pyytää ensimmäistä päivitystä (80€), ehdota:<br>
+                <em>"Hei! Huomasin että tarvitsit päivityksen. Jos tarvitset näitä säännöllisesti, ylläpitosopimus (50€/kk) säästää rahaa ja saat rajoittamattoman tuen."</em></p>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- MYYNTIOHJEISTUS SANTULLE -->
+        <div class="section">
+            <h2>4. Myyntiohjeistus Santulle</h2>
+
+            <h3>A) Ensikontakti</h3>
+
+            <h4>Mitä sanot:</h4>
+            <div class="success-box">
+                <p><strong>"Hei! Olen Santtu. Meillä on ratkaisu joka vähentää toistuvat asiakaskyselyt kotisivuillasi. Se on automaattinen chat-työkalu joka vastaa asiakkaiden yleisimpiin kysymyksiin 24/7 - aukioloajat, palvelut, yhteystiedot. Vähentää puheluita ja sähköposteja merkittävästi."</strong></p>
+
+                <p><strong>"Haluatko nähdä demon miltä se näyttää?"</strong></p>
+            </div>
+
+            <h4>Mitä EI sano:</h4>
+            <div class="warning-box">
+                <ul>
+                    <li><span class="cross">✗</span> "Meillä on AI-chatbot" (harhaanjohtavaa)</li>
+                    <li><span class="cross">✗</span> "Se ymmärtää kaikki kysymykset" (ei ymmärrä)</li>
+                    <li><span class="cross">✗</span> "Tämä korvaa asiakaspalvelusi" (ei korvaa)</li>
+                    <li><span class="cross">✗</span> "Se oppii asiakkaista" (ei opi)</li>
+                </ul>
+            </div>
+
+            <h3>B) Demon esittely</h3>
+
+            <ol>
+                <li><strong>Avaa demo</strong>: <code>index.html</code> (Esimerkki Kiinteistöhuolto Oy)</li>
+                <li><strong>Näytä chat-painike</strong>: Oikeassa alakulmassa 💬</li>
+                <li><strong>Testaa live</strong>:
+                    <ul>
+                        <li>"Mitkä ovat aukioloajat?"</li>
+                        <li>"Mitä palveluita tarjoatte?"</li>
+                        <li>"Mikä on päivystysnumero?"</li>
+                    </ul>
+                </li>
+                <li><strong>Korosta hyödyt</strong>:
+                    <ul>
+                        <li>"Näet? Asiakas saa vastauksen HETI, ilman odotusta."</li>
+                        <li>"Tämä toimii 24/7, myös kun toimistonne on kiinni."</li>
+                        <li>"Vähentää samoja kysymyksiä puhelimessa ja sähköpostissa."</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>C) Vastauksia yleisiin kysymyksiin</h3>
+
+            <h4>K: "Onko tämä tekoäly?"</h4>
+            <p><strong>V:</strong> "Ei, tämä on FAQ-chatbot. Se toimii ennalta määritellyillä vastauksilla. Eli me räätälöimme sinun yrityksesi kysymykset ja vastaukset, ja chatbot tarjoaa ne asiakkaille automaattisesti. Se on paljon edullisempi kuin oikea AI, ja toimii täydellisesti pk-yrityksille."</p>
+
+            <h4>K: "Entä jos asiakas kysyy jotain mitä chatbot ei tiedä?"</h4>
+            <p><strong>V:</strong> "Silloin se sanoo rehellisesti: 'En löydä vastausta ohjeista. Ole yhteydessä [sähköposti/puhelin].' Se ohjaa asiakkaan oikeaan paikkaan. Näin asiakas ei jää jumiin."</p>
+
+            <h4>K: "Voiko asiakas varata ajan chatbotilla?"</h4>
+            <p><strong>V:</strong> "Ei suoraan, mutta chatbot voi antaa linkin varausjärjestelmääsi tai puhelinnumeron josta asiakas voi soittaa. Tämä on nimenomaan tiedonjakoon, ei varauksiin."</p>
+
+            <h4>K: "Kuinka paljon kysymyksiä siihen voi laittaa?"</h4>
+            <p><strong>V:</strong> "Käyttöönottohintaan (490€) sisältyy 15 kysymys-vastaus -paria. Se riittää hyvin useimmille. Jos tarvitset enemmän, voimme lisätä niitä joko käyttöönotossa tai myöhemmin."</p>
+
+            <h4>K: "Voimmeko itse päivittää sisältöä?"</h4>
+            <p><strong>V:</strong> "Teknisesti kyllä, mutta se vaatii HTML-osaamista. Siksi suosittelemme ylläpitosopimusta (50€/kk), jolloin me hoidamme kaikki päivitykset puolestasi. Saat 3 päivitystä kuukaudessa, mikä on yleensä enemmän kuin tarpeeksi."</p>
+
+            <h4>K: "Toimiiko tämä meidän vanhoilla kotisivuilla?"</h4>
+            <p><strong>V:</strong> "Kyllä! Chat toimii melkein kaikilla sivustoilla - WordPress, Wix, custom-sivut. Me asennaamme sen sinne, ei vaadi mitään muutoksia olemassa oleville sivuille."</p>
+
+            <h3>D) Kaupan päättäminen</h3>
+
+            <div class="success-box">
+                <h4>Sulkevat kysymykset:</h4>
+                <ol>
+                    <li><strong>"Haluatko lähteä kokeilemaan tätä?"</strong></li>
+                    <li><strong>"Milloin olisi hyvä aika asentaa tämä sivuillesi?"</strong></li>
+                    <li><strong>"Lähetetäänkö tarjous vai mennäänkö suoraan käyttöönottoon?"</strong></li>
+                </ol>
+            </div>
+
+            <h4>Tarjousesimerkki:</h4>
+            <div class="highlight-box">
+                <p><strong>FAQ Chat Widget - Tarjous</strong></p>
+                <p><strong>Asiakas:</strong> [Yrityksen nimi]</p>
+                <p><strong>Käyttöönotto:</strong> 490€ (alv 0%)<br>
+                Sisältää: 15 Q&A-paria, asennus, brändäys, testaus</p>
+                <p><strong>Ylläpito:</strong> 50€/kk (valinnainen)<br>
+                Sisältää: 3 päivitystä/kk, tekninen tuki</p>
+                <p><strong>Toimitusaika:</strong> 3-5 arkipäivää käyttöönotosta</p>
+                <p><strong>Yhteyshenkilö (myynti):</strong> Santtu<br>
+                <strong>Tekninen toteutus:</strong> Andy</p>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- PROSESSI -->
+        <div class="section">
+            <h2>5. Prosessi: Myynnistä käyttöönottoon</h2>
+
+            <h3>Vaihe 1: Myynti (Santtu)</h3>
+            <ol>
+                <li>Ensikontakti asiakkaaseen</li>
+                <li>Demon esittely</li>
+                <li>Tarjouksen lähettäminen</li>
+                <li>Sopimuksen allekirjoitus</li>
+                <li>Tietojen keräys asiakkaalta (katso "Tiedonkeräyslomake")</li>
+                <li>→ Siirto Andylle toteutettavaksi</li>
+            </ol>
+
+            <h3>Vaihe 2: Toteutus (Andy + Claude)</h3>
+            <ol>
+                <li>Andy saa asiakastiedot Santulta</li>
+                <li>Andy räätälöi chatbotin Claudella:
+                    <ul>
+                        <li>Päivittää yrityksen tiedot (nimi, aukioloajat, palvelut, yhteystiedot)</li>
+                        <li>Lisää Q&A-parit</li>
+                        <li>Muuttaa värit asiakkaan brändiin</li>
+                        <li>Testaa toimivuuden</li>
+                    </ul>
+                </li>
+                <li>Andy asentaa chatbotin asiakkaan sivulle</li>
+                <li>Andy testaa livellä että toimii</li>
+                <li>→ Ilmoitus Santulle: "Valmis!"</li>
+            </ol>
+
+            <h3>Vaihe 3: Luovutus (Santtu)</h3>
+            <ol>
+                <li>Santtu ilmoittaa asiakkaalle: "Chat on nyt live sivuillasi!"</li>
+                <li>Lyhyt puhelinkoulutus/demo asiakkaalle</li>
+                <li>Lähetetään käyttöohje sähköpostilla</li>
+                <li>Laskutus</li>
+            </ol>
+
+            <h3>Aikataulu:</h3>
+            <ul>
+                <li><strong>Myynti → Tietojen keruu:</strong> 1-2 päivää</li>
+                <li><strong>Toteutus (Andy):</strong> 2-4 tuntia</li>
+                <li><strong>Testaus + käyttöönotto:</strong> 1 päivä</li>
+                <li><strong>YHTEENSÄ:</strong> 3-5 arkipäivää</li>
+            </ul>
+        </div>
+
+        <!-- TIEDONKERÄYS -->
+        <div class="section">
+            <h2>6. Tiedonkeräyslomake asiakkaalle</h2>
+
+            <div class="highlight-box">
+                <h4>Santtu, lähetä tämä lomake asiakkaalle sopimuksen jälkeen:</h4>
+
+                <p><strong>Hei [Asiakkaan nimi]!</strong></p>
+                <p>Kiitos tilauksesta! Jotta voimme rakentaa chatbotin juuri sinun yrityksellesi, tarvitsemme seuraavat tiedot:</p>
+
+                <h4>PERUSTIEDOT:</h4>
+                <ol>
+                    <li>Yrityksen virallinen nimi:</li>
+                    <li>Kotisivun osoite (URL):</li>
+                    <li>Pääväri/brändiväri (esim. #667eea tai "sininen"):</li>
+                </ol>
+
+                <h4>YHTEYSTIEDOT:</h4>
+                <ol>
+                    <li>Sähköposti:</li>
+                    <li>Puhelinnumero:</li>
+                    <li>Päivystysnumero (jos eri kuin puhelin):</li>
+                    <li>Osoite (jos haluat näyttää):</li>
+                </ol>
+
+                <h4>AUKIOLOAJAT:</h4>
+                <ol>
+                    <li>Arkipäivät (esim. "Ma-Pe 8-16"):</li>
+                    <li>Viikonloppu (jos auki):</li>
+                    <li>Päivystys (kyllä/ei, milloin):</li>
+                </ol>
+
+                <h4>PALVELUT:</h4>
+                <p>Listaa 3-10 pääpalveluasi (esim. "Kiinteistöhuolto, Pienkorjaukset, Talvikunnossapito"):</p>
+                <ol>
+                    <li>_________________</li>
+                    <li>_________________</li>
+                    <li>_________________</li>
+                </ol>
+
+                <h4>USEIN KYSYTYT KYSYMYKSET (15 kpl):</h4>
+                <p>Kirjoita 10-15 kysymystä joita asiakkaat kysyvät usein, ja vastaukset niihin:</p>
+                <ol>
+                    <li>Q: "Milloin olette auki?" → A: [aukioloajat]</li>
+                    <li>Q: "Mitä palveluita tarjoatte?" → A: [palvelulista]</li>
+                    <li>Q: "Miten teen vikailmoituksen?" → A: _________________</li>
+                    <li>Q: _________________ → A: _________________</li>
+                    <li>...jne</li>
+                </ol>
+
+                <p><strong>Lähetä nämä tiedot → Andylle toteutettavaksi!</strong></p>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- YLLÄPITO -->
+        <div class="section">
+            <h2>7. Ylläpitoprosessi</h2>
+
+            <h3>Jos asiakas ottaa ylläpitosopimuksen (50€/kk):</h3>
+
+            <h4>Santtu:</h4>
+            <ul>
+                <li>Vastaanottaa asiakkaan päivityspyynnöt sähköpostilla/puhelimella</li>
+                <li>Kirjaa pyynnöt ylös ja lähettää Andylle</li>
+                <li>Max 3 päivitystä/kk sisältyy hintaan</li>
+            </ul>
+
+            <h4>Andy:</h4>
+            <ul>
+                <li>Toteuttaa päivitykset Claudella (muuttaa HTML-tiedostoa)</li>
+                <li>Testaa että toimii</li>
+                <li>Päivittää asiakkaan sivulle</li>
+                <li>Ilmoittaa Santulle: "Päivitetty!"</li>
+                <li>Aikataulu: 1-2 arkipäivää</li>
+            </ul>
+
+            <h4>Santtu ilmoittaa asiakkaalle:</h4>
+            <p>"Hei! Päivitys on nyt live sivuillasi. Käy testaamassa!"</p>
+        </div>
+
+        <!-- MYYNTIARGUMENTIT -->
+        <div class="section">
+            <h2>8. Parhaat myyntiargumentit</h2>
+
+            <div class="success-box">
+                <h4>✓ Käytä näitä argumentteja:</h4>
+                <ol>
+                    <li><strong>"Säästää aikaa"</strong>
+                        <p>"Kuinka monta kertaa viikossa vastaat samoihin kysymyksiin? Aukioloajat? Hinnat? Yhteystiedot? Tämä hoitaa ne automaattisesti."</p>
+                    </li>
+                    <li><strong>"24/7 palvelu"</strong>
+                        <p>"Asiakkaasi saavat vastaukset myös iltaisin ja viikonloppuisin kun toimisto on kiinni. Ei menetettyjä asiakkaita."</p>
+                    </li>
+                    <li><strong>"Parantaa asiakaskokemusta"</strong>
+                        <p>"Asiakkaat arvostavat välitöntä palvelua. Ei odotusaikoja, ei soittojonoja."</p>
+                    </li>
+                    <li><strong>"Edullinen"</strong>
+                        <p>"490€ käyttöönotto on kertaluonteinen investointi. Ei kuukausimaksuja kolmansille osapuolille. Jos haluat ylläpidon, se on vain 50€/kk - vähemmän kuin yksi työtunti."</p>
+                    </li>
+                    <li><strong>"Helppo asentaa"</strong>
+                        <p>"Me hoidamme kaiken. Sinun ei tarvitse tehdä mitään teknistä. Toimii olemassa olevilla sivuilla."</p>
+                    </li>
+                    <li><strong>"Räätälöity juuri sinulle"</strong>
+                        <p>"Tämä ei ole valmispaketti. Rakennamme sen juuri sinun yrityksellesi - sinun väreillä, sinun tiedoillasi, sinun kysymyksilläsi."</p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- VAROITUKSET -->
+        <div class="section">
+            <h2>9. Mitä VÄLTTÄÄ sanomasta</h2>
+
+            <div class="warning-box">
+                <h4>✗ ÄLÄ KOSKAAN lupaa näitä:</h4>
+                <ul>
+                    <li><span class="cross">✗</span> "Tämä on tekoäly" → Se EI ole AI</li>
+                    <li><span class="cross">✗</span> "Se oppii asiakkaista" → Se ei opi</li>
+                    <li><span class="cross">✗</span> "Se ymmärtää kaikki kysymykset" → Toimii vain keywordeilla</li>
+                    <li><span class="cross">✗</span> "Tämä korvaa asiakaspalvelun" → Täydentää, ei korvaa</li>
+                    <li><span class="cross">✗</span> "Toimii 100% ajasta" → Voi olla teknisiä ongelmia</li>
+                    <li><span class="cross">✗</span> "Voidaan tehdä huomenna" → Anna realistinen aikataulu (3-5 päivää)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TAVOITTEET -->
+        <div class="section">
+            <h2>10. Myyntitavoitteet ja kannattavuus</h2>
+
+            <h3>Santtu - Myyntitavoite:</h3>
+            <ul>
+                <li><strong>Kuukausi 1-2:</strong> 3-5 asiakasta (testijakso)</li>
+                <li><strong>Kuukausi 3+:</strong> 5-10 asiakasta/kk</li>
+            </ul>
+
+            <h3>Kannattavuuslaskelma (10 asiakasta):</h3>
+
+            <table class="price-table">
+                <tr>
+                    <td>Käyttöönotot (10 × 490€)</td>
+                    <td>4 900€</td>
+                </tr>
+                <tr>
+                    <td>Ylläpito (50% ottaa, 5 × 50€/kk × 12kk)</td>
+                    <td>3 000€</td>
+                </tr>
+                <tr>
+                    <td><strong>YHTEENSÄ / vuosi</strong></td>
+                    <td><strong>7 900€</strong></td>
+                </tr>
+            </table>
+
+            <p><strong>Työmäärä Andylle:</strong> 2-4h per käyttöönotto, 1h per ylläpitopäivitys</p>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <h3>Yhteystiedot</h3>
+            <p><strong>Myynti:</strong> Santtu | <strong>Tekninen toteutus:</strong> Andy</p>
+            <p style="margin-top: 20px; font-size: 14px; color: #999;">FAQ Chat Widget - Myyntipaketti v1.0 | © 2026</p>
+        </div>
+    </div>
+
+    <script>
+        // Tulostusohje ensimmäisellä latauksella
+        window.addEventListener('load', () => {
+            const printed = localStorage.getItem('myyntipaketti_printed');
+            if (!printed) {
+                setTimeout(() => {
+                    if (confirm('Haluatko tulostaa tämän PDF:ksi?\n\nPaina Ctrl+P (tai Cmd+P) ja valitse "Tallenna PDF:ksi"')) {
+                        window.print();
+                        localStorage.setItem('myyntipaketti_printed', 'true');
+                    }
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
