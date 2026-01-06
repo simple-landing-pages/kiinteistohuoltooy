@@ -1,0 +1,49 @@
+YRITYS: Esimerkki Kiinteistöhuolto Oy
+
+PERUSTIEDOT
+Yritys tarjoaa kiinteistöhuolto- ja ylläpitopalveluja taloyhtiöille ja pienille liikekiinteistöille pääkaupunkiseudulla.
+
+Aukioloajat:
+- Ma–Pe klo 8–16
+- Päivystys vain kiireellisissä vioissa iltaisin ja viikonloppuisin
+
+Yhteystiedot:
+- Sähköposti: huolto@esimerkki.fi
+- Puhelin: 040 123 4567
+- Päivystysnumero: 040 765 4321
+
+PALVELUT
+- Kiinteistöhuolto
+- Pienkorjaukset (ovet, lukot, hanat)
+- Vikailmoitusten vastaanotto
+- Talvikunnossapito
+- Porrassiivouksen valvonta
+
+VIKAILMOITUKSET
+- Vikailmoitukset tehdään ensisijaisesti sähköpostitse.
+- Kiireellisissä tapauksissa asiakas ohjataan päivystykseen.
+- Kiireellisiksi vioiksi katsotaan:
+  - vesivuoto
+  - sähkökatko
+  - oven lukkiutuminen
+
+TYÖNTEKIJÖIDEN OHJEET
+- Asiakkaille ei luvata aikatauluja ilman esimiehen lupaa.
+- Kaikki työmääräykset kirjataan työpäiväkirjaan.
+- Päivystysvuorossa oleva työntekijä vastaa kiireellisiin vikailmoituksiin.
+- Työvuoromuutoksista ilmoitetaan esimiehelle.
+
+USEIN KYSYTYT KYSYMYKSET
+Q: Milloin huolto tulee paikalle?
+A: Aikataulu sovitaan erikseen. Työntekijät eivät saa luvata tarkkoja aikoja.
+
+Q: Mitä teen, jos avaimet ovat kadonneet?
+A: Asiakas ohjataan ottamaan yhteyttä isännöitsijään.
+
+Q: Kuuluuko siivous huoltosopimukseen?
+A: Ei kuulu, ellei erikseen ole sovittu.
+
+TURVARAJAT
+- AI ei saa antaa juridisia, taloudellisia tai työsuhdeneuvontaa.
+- AI ei saa käsitellä henkilötietoja.
+- AI ei saa antaa teknisiä korjausohjeita asiakkaille.

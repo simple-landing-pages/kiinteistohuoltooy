@@ -275,29 +275,54 @@
         // Yrityksen tietokanta - KAIKKI vastaukset perustuvat tähän
         const companyKnowledgeBase = {
             yritys: "Esimerkki Kiinteistöhuolto Oy",
+            perustiedot: {
+                kuvaus: "Yritys tarjoaa kiinteistöhuolto- ja ylläpitopalveluja taloyhtiöille ja pienille liikekiinteistöille pääkaupunkiseudulla."
+            },
             aukioloajat: {
                 arkipaivat: "Ma–Pe klo 8–16",
-                paivystys: "Päivystys vain kiireellisissä vioissa"
+                paivystys: "Päivystys vain kiireellisissä vioissa iltaisin ja viikonloppuisin"
             },
             palvelut: [
                 "Kiinteistöhuolto",
-                "Pienkorjaukset",
-                "Vikailmoitusten vastaanotto"
+                "Pienkorjaukset (ovet, lukot, hanat)",
+                "Vikailmoitusten vastaanotto",
+                "Talvikunnossapito",
+                "Porrassiivouksen valvonta"
             ],
             yhteystiedot: {
                 sahkoposti: "huolto@esimerkki.fi",
-                puhelin: "040 123 4567"
+                puhelin: "040 123 4567",
+                paivystysnumero: "040 765 4321"
             },
+            kiireellisetViat: [
+                "vesivuoto",
+                "sähkökatko",
+                "oven lukkiutuminen"
+            ],
             tyoohjeet: [
                 "Vikailmoitukset kirjataan sähköpostiin",
                 "Kiireelliset tapaukset ohjataan päivystykseen",
-                "Asiakkaille ei luvata aikatauluja ilman esimiehen lupaa"
-            ]
+                "Asiakkaille ei luvata aikatauluja ilman esimiehen lupaa",
+                "Kaikki työmääräykset kirjataan työpäiväkirjaan",
+                "Päivystysvuorossa oleva työntekijä vastaa kiireellisiin vikailmoituksiin",
+                "Työvuoromuutoksista ilmoitetaan esimiehelle"
+            ],
+            ukk: {
+                aikataulu: "Aikataulu sovitaan erikseen. Työntekijät eivät saa luvata tarkkoja aikoja.",
+                avaimet: "Asiakas ohjataan ottamaan yhteyttä isännöitsijään.",
+                siivous: "Siivous ei kuulu huoltosopimukseen, ellei erikseen ole sovittu."
+            }
         };
 
         // AI vastauslogiikka
         function getAIResponse(userMessage) {
             const message = userMessage.toLowerCase();
+
+            // Yrityksen kuvaus
+            if (message.includes('mikä yritys') || message.includes('mitä yritys') ||
+                message.includes('kuvaus') || message.includes('esittely')) {
+                return companyKnowledgeBase.perustiedot.kuvaus;
+            }
 
             // Aukioloajat
             if (message.includes('aukiolo') || message.includes('auki') || message.includes('avoinna') ||
@@ -313,23 +338,42 @@
             // Yhteystiedot
             if (message.includes('yhteystieto') || message.includes('puhelin') || message.includes('sähköposti') ||
                 message.includes('email') || message.includes('numero') || message.includes('soittaa')) {
-                return `Yhteystiedot:\n- Sähköposti: ${companyKnowledgeBase.yhteystiedot.sahkoposti}\n- Puhelin: ${companyKnowledgeBase.yhteystiedot.puhelin}`;
+                return `Yhteystiedot:\n- Sähköposti: ${companyKnowledgeBase.yhteystiedot.sahkoposti}\n- Puhelin: ${companyKnowledgeBase.yhteystiedot.puhelin}\n- Päivystysnumero: ${companyKnowledgeBase.yhteystiedot.paivystysnumero}`;
+            }
+
+            // Kiireelliset viat
+            if (message.includes('kiireelliset viat') || message.includes('mikä on kiireellinen') ||
+                message.includes('vesivuoto') || message.includes('sähkökatko') || message.includes('lukko')) {
+                return `Kiireellisiksi vioiksi katsotaan:\n- ${companyKnowledgeBase.kiireellisetViat.join('\n- ')}\n\nKiireellisissä tapauksissa soita päivystysnumeroon: ${companyKnowledgeBase.yhteystiedot.paivystysnumero}`;
             }
 
             // Vikailmoitukset
             if (message.includes('vikailmoitus') || message.includes('vika') || message.includes('ilmoitus') ||
                 message.includes('rikki') || message.includes('korjaus')) {
-                return `Vikailmoituksista:\n- Vikailmoitukset kirjataan sähköpostiin osoitteeseen ${companyKnowledgeBase.yhteystiedot.sahkoposti}\n- Puhelin: ${companyKnowledgeBase.yhteystiedot.puhelin}\n- Kiireelliset tapaukset ohjataan päivystykseen`;
+                return `Vikailmoituksista:\n- Vikailmoitukset tehdään ensisijaisesti sähköpostitse: ${companyKnowledgeBase.yhteystiedot.sahkoposti}\n- Puhelin: ${companyKnowledgeBase.yhteystiedot.puhelin}\n- Kiireellisissä tapauksissa soita päivystysnumeroon: ${companyKnowledgeBase.yhteystiedot.paivystysnumero}`;
             }
 
             // Päivystys
             if (message.includes('päivystys') || message.includes('kiire') || message.includes('hätä')) {
-                return `${companyKnowledgeBase.aukioloajat.paivystys}.\n\nYhteystiedot:\n- Puhelin: ${companyKnowledgeBase.yhteystiedot.puhelin}\n- Sähköposti: ${companyKnowledgeBase.yhteystiedot.sahkoposti}`;
+                return `${companyKnowledgeBase.aukioloajat.paivystys}.\n\nPäivystysnumero:\n- ${companyKnowledgeBase.yhteystiedot.paivystysnumero}\n\nKiireellisiksi vioiksi katsotaan: ${companyKnowledgeBase.kiireellisetViat.join(', ')}.`;
             }
 
-            // Aikataulut
-            if (message.includes('aikataulu') || message.includes('milloin valmis') || message.includes('kauanko kestää')) {
-                return `Asiakkaille ei luvata aikatauluja ilman esimiehen lupaa. Ole yhteydessä esimieheen aikataulujen osalta.`;
+            // Aikataulut (UKK)
+            if (message.includes('aikataulu') || message.includes('milloin valmis') ||
+                message.includes('milloin tulee') || message.includes('kauanko kestää')) {
+                return companyKnowledgeBase.ukk.aikataulu;
+            }
+
+            // Avaimet (UKK)
+            if (message.includes('avain') || message.includes('kadonneet avain') ||
+                message.includes('hukassa') || message.includes('lukko rikki')) {
+                return companyKnowledgeBase.ukk.avaimet;
+            }
+
+            // Siivous (UKK)
+            if (message.includes('siivous') || message.includes('siivoa') ||
+                message.includes('porrassiivous')) {
+                return companyKnowledgeBase.ukk.siivous;
             }
 
             // Työohjeet
@@ -342,12 +386,12 @@
                 return `Hei! Olen Esimerkki Kiinteistöhuolto Oy:n sisäinen ohjechatti. Voin vastata kysymyksiin yrityksen ohjeista ja tiedoista. Miten voin auttaa?`;
             }
 
-            // Kiitos
+            // Kiitokset
             if (message.includes('kiitos') || message.includes('kiitti')) {
                 return `Ole hyvä! Ota rohkeasti yhteyttä, jos sinulla on lisää kysymyksiä.`;
             }
 
-            // Jos vastausta ei löydy
+            // Fallback
             return "En löydä vastausta ohjeista. Ole yhteydessä esimieheen tai asiakaspalveluun.";
         }
 
