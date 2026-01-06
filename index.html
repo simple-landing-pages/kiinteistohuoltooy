@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esimerkki Kiinteistöhuolto Oy - Luotettavaa kiinteistöhuoltoa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 150px 20px 100px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #667eea;
+        }
+
+        /* Palvelut */
+        .palvelut-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .palvelu-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .palvelu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .palvelu-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .palvelu-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .palvelu-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Aukioloajat */
+        .aukioloajat {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .aukioloajat h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .aukioloajat-info {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .aukioloajat-item {
+            text-align: center;
+        }
+
+        .aukioloajat-item .label {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .aukioloajat-item .time {
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Yhteystiedot */
+        .yhteystiedot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .yhteystieto-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .yhteystieto-card:hover {
+            transform: scale(1.05);
+        }
+
+        .yhteystieto-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .yhteystieto-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .yhteystieto-card a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 80px;
+        }
+
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chat-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            transition: transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-window {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 400px;
+            height: 600px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            flex-direction: column;
+            overflow: hidden;
+            animation: slideUp 0.3s ease;
+        }
+
+        .chat-window.active {
+            display: flex;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message-content {
+            max-width: 80%;
+            padding: 12px 18px;
+            border-radius: 18px;
+            word-wrap: break-word;
+        }
+
+        .message.user .message-content {
+            background: #667eea;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .message.bot .message-content {
+            background: white;
+            color: #333;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-input-container {
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .chat-input-wrapper {
+            display: flex;
+            gap: 10px;
+        }
+
+        #chatInput {
+            flex: 1;
+            padding: 10px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 20px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        #chatInput:focus {
+            border-color: #667eea;
+        }
+
+        #sendChatButton {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .typing-indicator {
+            display: none;
+            padding: 12px 18px;
+            background: white;
+            border-radius: 18px;
+            border-bottom-left-radius: 4px;
+            max-width: 80px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .typing-indicator.active {
+            display: inline-block;
+        }
+
+        .typing-indicator span {
+            height: 8px;
+            width: 8px;
+            background: #667eea;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 2px;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .welcome-chat-message {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+
+        .welcome-chat-message h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .chat-window {
+                width: calc(100% - 40px);
+                height: 500px;
+                bottom: 90px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Esimerkki Kiinteistöhuolto Oy</div>
+            <ul class="nav-links">
+                <li><a href="#palvelut">Palvelut</a></li>
+                <li><a href="#aukioloajat">Aukioloajat</a></li>
+                <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Luotettavaa kiinteistöhuoltoa</h1>
+        <p>Ammattitaitoista palvelua kiinteistösi tarpeisiin</p>
+        <a href="#yhteystiedot" class="cta-button">Ota yhteyttä</a>
+    </div>
+
+    <!-- Palvelut Section -->
+    <section id="palvelut">
+        <h2>Palvelumme</h2>
+        <div class="palvelut-grid">
+            <div class="palvelu-card">
+                <div class="palvelu-icon">🏢</div>
+                <h3>Kiinteistöhuolto</h3>
+                <p>Kokonaisvaltaista kiinteistöhuoltoa ammattitaitoisesti ja luotettavasti. Pidämme kiinteistösi kunnossa.</p>
+            </div>
+            <div class="palvelu-card">
+                <div class="palvelu-icon">🔧</div>
+                <h3>Pienkorjaukset</h3>
+                <p>Nopeat ja laadukkaat pienkorjauspalvelut. Korjaamme pienet viat ennen kuin niistä tulee suuria ongelmia.</p>
+            </div>
+            <div class="palvelu-card">
+                <div class="palvelu-icon">📋</div>
+                <h3>Vikailmoitusten vastaanotto</h3>
+                <p>Tehokas vikailmoitusten käsittely. Otamme vastaan ilmoitukset ja reagoimme nopeasti.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aukioloajat Section -->
+    <section id="aukioloajat">
+        <h2>Aukioloajat</h2>
+        <div class="aukioloajat">
+            <h3>Olemme palveluksessasi</h3>
+            <div class="aukioloajat-info">
+                <div class="aukioloajat-item">
+                    <div class="label">Arkisin</div>
+                    <div class="time">Ma–Pe klo 8–16</div>
+                </div>
+                <div class="aukioloajat-item">
+                    <div class="label">Päivystys</div>
+                    <div class="time">Vain kiireellisissä vioissa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Yhteystiedot Section -->
+    <section id="yhteystiedot">
+        <h2>Yhteystiedot</h2>
+        <div class="yhteystiedot-grid">
+            <div class="yhteystieto-card">
+                <div class="yhteystieto-icon">📧</div>
+                <h3>Sähköposti</h3>
+                <a href="mailto:huolto@esimerkki.fi">huolto@esimerkki.fi</a>
+            </div>
+            <div class="yhteystieto-card">
+                <div class="yhteystieto-icon">📱</div>
+                <h3>Puhelin</h3>
+                <a href="tel:0401234567">040 123 4567</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Esimerkki Kiinteistöhuolto Oy. Kaikki oikeudet pidätetään.</p>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-button" id="chatButton" onclick="toggleChat()">💬</button>
+
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3>Chat-tuki</h3>
+                <button class="close-chat" onclick="toggleChat()">✕</button>
+            </div>
+            <div class="chat-messages" id="chatMessagesWidget">
+                <div class="welcome-chat-message">
+                    <h4>Tervetuloa!</h4>
+                    <p>Kysy minulta esimerkiksi aukioloajoista, palveluista tai työohjeista.</p>
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <input type="text" id="chatInput" placeholder="Kirjoita kysymyksesi..." autocomplete="off">
+                    <button id="sendChatButton">Lähetä</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Chat AI Logic
+        const companyKnowledgeBase = {
+            yritys: "Esimerkki Kiinteistöhuolto Oy",
+            aukioloajat: {
+                arkipaivat: "Ma–Pe klo 8–16",
+                paivystys: "Päivystys vain kiireellisissä vioissa"
+            },
+            palvelut: [
+                "Kiinteistöhuolto",
+                "Pienkorjaukset",
+                "Vikailmoitusten vastaanotto"
+            ],
+            yhteystiedot: {
+                sahkoposti: "huolto@esimerkki.fi",
+                puhelin: "040 123 4567"
+            },
+            tyoohjeet: [
+                "Vikailmoitukset kirjataan sähköpostiin",
+                "Kiireelliset tapaukset ohjataan päivystykseen",
+                "Asiakkaille ei luvata aikatauluja ilman esimiehen lupaa"
+            ]
+        };
+
+        function getAIResponse(userMessage) {
+            const message = userMessage.toLowerCase();
+
+            if (message.includes('aukiolo') || message.includes('auki') || message.includes('avoinna') ||
+                message.includes('milloin') && (message.includes('auki') || message.includes('avoinna'))) {
+                return `Aukioloajat ovat ${companyKnowledgeBase.aukioloajat.arkipaivat}. ${companyKnowledgeBase.aukioloajat.paivystys}.`;
+            }
+
+            if (message.includes('palvelu') || message.includes('mitä te') || message.includes('mitä teette')) {
+                return `Tarjoamme seuraavat palvelut:\n- ${companyKnowledgeBase.palvelut.join('\n- ')}`;
+            }
+
+            if (message.includes('yhteystieto') || message.includes('puhelin') || message.includes('sähköposti') ||
+                message.includes('email') || message.includes('numero') || message.includes('soittaa')) {
+                return `Yhteystiedot:\n- Sähköposti: ${companyKnowledgeBase.yhteystiedot.sahkoposti}\n- Puhelin: ${companyKnowledgeBase.yhteystiedot.puhelin}`;
+            }
+
+            if (message.includes('vikailmoitus') || message.includes('vika') || message.includes('ilmoitus') ||
+                message.includes('rikki') || message.includes('korjaus')) {
+                return `Vikailmoituksista:\n- Vikailmoitukset kirjataan sähköpostiin osoitteeseen ${companyKnowledgeBase.yhteystiedot.sahkoposti}\n- Puhelin: ${companyKnowledgeBase.yhteystiedot.puhelin}\n- Kiireelliset tapaukset ohjataan päivystykseen`;
+            }
+
+            if (message.includes('päivystys') || message.includes('kiire') || message.includes('hätä')) {
+                return `${companyKnowledgeBase.aukioloajat.paivystys}.\n\nYhteystiedot:\n- Puhelin: ${companyKnowledgeBase.yhteystiedot.puhelin}\n- Sähköposti: ${companyKnowledgeBase.yhteystiedot.sahkoposti}`;
+            }
+
+            if (message.includes('aikataulu') || message.includes('milloin valmis') || message.includes('kauanko kestää')) {
+                return `Asiakkaille ei luvata aikatauluja ilman esimiehen lupaa. Ole yhteydessä esimieheen aikataulujen osalta.`;
+            }
+
+            if (message.includes('työohje') || message.includes('ohje') || message.includes('miten toimi')) {
+                return `Työntekijöiden ohjeet:\n- ${companyKnowledgeBase.tyoohjeet.join('\n- ')}`;
+            }
+
+            if (message.includes('hei') || message.includes('moi') || message.includes('terve') || message.includes('päivää')) {
+                return `Hei! Olen Esimerkki Kiinteistöhuolto Oy:n sisäinen ohjechatti. Voin vastata kysymyksiin yrityksen ohjeista ja tiedoista. Miten voin auttaa?`;
+            }
+
+            if (message.includes('kiitos') || message.includes('kiitti')) {
+                return `Ole hyvä! Ota rohkeasti yhteyttä, jos sinulla on lisää kysymyksiä.`;
+            }
+
+            return "En löydä vastausta ohjeista. Ole yhteydessä esimieheen tai asiakaspalveluun.";
+        }
+
+        // Chat UI
+        function toggleChat() {
+            const chatWindow = document.getElementById('chatWindow');
+            chatWindow.classList.toggle('active');
+            if (chatWindow.classList.contains('active')) {
+                document.getElementById('chatInput').focus();
+            }
+        }
+
+        function addChatMessage(text, isUser) {
+            const welcomeMessage = document.querySelector('.welcome-chat-message');
+            if (welcomeMessage) {
+                welcomeMessage.style.display = 'none';
+            }
+
+            const chatMessages = document.getElementById('chatMessagesWidget');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'message-content';
+            contentDiv.textContent = text;
+            contentDiv.style.whiteSpace = 'pre-line';
+
+            messageDiv.appendChild(contentDiv);
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            const chatMessages = document.getElementById('chatMessagesWidget');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot';
+            typingDiv.id = 'typingIndicator';
+
+            const indicator = document.createElement('div');
+            indicator.className = 'typing-indicator active';
+            indicator.innerHTML = '<span></span><span></span><span></span>';
+
+            typingDiv.appendChild(indicator);
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if (message === '') return;
+
+            addChatMessage(message, true);
+            input.value = '';
+
+            showTypingIndicator();
+            setTimeout(() => {
+                removeTypingIndicator();
+                const response = getAIResponse(message);
+                addChatMessage(response, false);
+            }, 800 + Math.random() * 400);
+        }
+
+        document.getElementById('sendChatButton').addEventListener('click', sendChatMessage);
+        document.getElementById('chatInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendChatMessage();
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
