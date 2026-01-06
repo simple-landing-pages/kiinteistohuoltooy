@@ -146,8 +146,11 @@
         }
 
         .palvelu-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 30px;
+            border-radius: 2px;
         }
 
         .palvelu-card h3 {
@@ -221,8 +224,24 @@
         }
 
         .yhteystieto-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 20px;
+            border: 3px solid white;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .yhteystieto-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
         }
 
         .yhteystieto-card h3 {
@@ -510,17 +529,17 @@
         <h2>Palvelumme</h2>
         <div class="palvelut-grid">
             <div class="palvelu-card">
-                <div class="palvelu-icon">🏢</div>
+                <div class="palvelu-icon"></div>
                 <h3>Kiinteistöhuolto</h3>
                 <p>Kokonaisvaltaista kiinteistöhuoltoa ammattitaitoisesti ja luotettavasti. Pidämme kiinteistösi kunnossa.</p>
             </div>
             <div class="palvelu-card">
-                <div class="palvelu-icon">🔧</div>
+                <div class="palvelu-icon"></div>
                 <h3>Pienkorjaukset</h3>
                 <p>Nopeat ja laadukkaat pienkorjauspalvelut. Korjaamme pienet viat ennen kuin niistä tulee suuria ongelmia.</p>
             </div>
             <div class="palvelu-card">
-                <div class="palvelu-icon">📋</div>
+                <div class="palvelu-icon"></div>
                 <h3>Vikailmoitusten vastaanotto</h3>
                 <p>Tehokas vikailmoitusten käsittely. Otamme vastaan ilmoitukset ja reagoimme nopeasti.</p>
             </div>
@@ -550,12 +569,12 @@
         <h2>Yhteystiedot</h2>
         <div class="yhteystiedot-grid">
             <div class="yhteystieto-card">
-                <div class="yhteystieto-icon">📧</div>
+                <div class="yhteystieto-icon"></div>
                 <h3>Sähköposti</h3>
                 <a href="mailto:huolto@esimerkki.fi">huolto@esimerkki.fi</a>
             </div>
             <div class="yhteystieto-card">
-                <div class="yhteystieto-icon">📱</div>
+                <div class="yhteystieto-icon"></div>
                 <h3>Puhelin</h3>
                 <a href="tel:0401234567">040 123 4567</a>
             </div>
