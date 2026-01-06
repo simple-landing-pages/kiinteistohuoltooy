@@ -669,8 +669,15 @@
             }
 
             // Palvelut
-            if (message.includes('palvelu') || message.includes('mitä te') || message.includes('mitä teette')) {
+            if (message.includes('palvelu') || message.includes('mitä te') || message.includes('mitä teette') ||
+                message.includes('tarjoa') || message.includes('talvikunnossapito') ||
+                message.includes('porrassiivous') || message.includes('pienkorjaus')) {
                 return `Tarjoamme seuraavat palvelut:\n- ${companyKnowledgeBase.palvelut.join('\n- ')}`;
+            }
+
+            // Päivystysnumero (täytyy olla ennen yhteystietoja!)
+            if (message.includes('päivystys') && message.includes('numero')) {
+                return `Päivystysnumero: ${companyKnowledgeBase.yhteystiedot.paivystysnumero}\n\n${companyKnowledgeBase.aukioloajat.paivystys}.`;
             }
 
             // Yhteystiedot
@@ -680,7 +687,7 @@
             }
 
             // Kiireelliset viat
-            if (message.includes('kiireelliset viat') || message.includes('mikä on kiireellinen') ||
+            if (message.includes('kiireellis') || message.includes('kiireelliset viat') ||
                 message.includes('vesivuoto') || message.includes('sähkökatko') || message.includes('lukko')) {
                 return `Kiireellisiksi vioiksi katsotaan:\n- ${companyKnowledgeBase.kiireellisetViat.join('\n- ')}\n\nKiireellisissä tapauksissa soita päivystysnumeroon: ${companyKnowledgeBase.yhteystiedot.paivystysnumero}`;
             }
@@ -698,7 +705,9 @@
 
             // Aikataulut (UKK)
             if (message.includes('aikataulu') || message.includes('milloin valmis') ||
-                message.includes('milloin tulee') || message.includes('kauanko kestää')) {
+                (message.includes('milloin') && message.includes('tulee')) ||
+                message.includes('milloin huolto') || message.includes('kauanko kestää') ||
+                message.includes('kuinka kauan')) {
                 return companyKnowledgeBase.ukk.aikataulu;
             }
 
